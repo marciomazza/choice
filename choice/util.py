@@ -1,7 +1,7 @@
 # outlist contains elements (id, display)
 def idNameList(inlist):
     if inlist is None:
-        return None
+        return []
 
     outlist = []
     for item in inlist:

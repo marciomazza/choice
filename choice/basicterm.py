@@ -28,7 +28,7 @@ class BasicTermMenu(object):
             end = start + self.PAGE_SIZE
             for i, c in enumerate(self.choices[start:end]):
                 print(" {}: {}".format(i, c[1]))
-            if self.global_actions is not None:
+            if self.global_actions:
                 print()
                 for ga in self.global_actions:
                     if ga[0] == ga[1]:
@@ -84,7 +84,7 @@ class BasicTermMenu(object):
                 print("{} is not a valid choice".format(resp))
 
         assert choice is not None
-        if self.actions is None or len(self.actions) == 1:
+        if len(self.actions) <= 1:
             return choice[0]
 
         action = None
@@ -149,4 +149,3 @@ class BasicTermBinaryChoice(object):
         else:
             print("Please answer 'y'es or 'n'o")
             return self.ask()
-
